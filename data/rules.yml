@@ -1,0 +1,56 @@
+version: "3.1"
+
+rules:
+# controls for incident creationg form
+# activate create_incident_form
+- rule: Activate create incident form
+  steps:
+  - intent: create_snow_incident
+  - action: create_incident_form
+  - active_loop: create_incident_form
+
+# deactivate create_incident_form
+- rule: Submit create incident form
+  condition:
+  # Condition that form is active.
+  - active_loop: create_incident_form
+  steps:
+  # Form is deactivated
+  - action: create_incident_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  # The actions we want to run when the form is submitted.
+  - action: action_create_incident
+
+
+# Generic rules
+- rule: greet anytime the user says Hi
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Say 'recorded email' anytime the user says my email
+  steps:
+  - intent: get_user_email
+  - action: utter_recorded_email
+
+- rule: Say 'recorded incident' anytime the user says my incident
+  steps:
+  - intent: snow_activity
+  - action: utter_recorded_incident
+  - action: utter_ask_snow_activity
+
+
+
+

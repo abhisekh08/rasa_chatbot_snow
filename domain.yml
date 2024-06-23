@@ -1,0 +1,101 @@
+version: '3.1'
+
+intents:
+- affirm
+- bot_challenge
+- deny
+- get_user_email
+- snow_activity:
+    ignore_intent: get_user_email
+- goodbye
+- greet
+- create_snow_incident
+- show_latest_update_incident
+- show_my_incidents
+- close_incident
+
+entities:
+- user_email
+- incident
+
+slots:
+  user_email:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: user_email
+
+  incident:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: incident
+
+
+forms:
+  create_incident_form:
+    required_slots:
+      - user_email
+
+  latest_update_incident_form:
+    required_slots:
+      - user_email
+      - incident
+
+  close_incident_form:
+    required_slots:
+      - user_email
+      - incident
+
+  show_my incident_form:
+    required_slots:
+      - user_email
+
+responses:
+  utter_greet:
+    - text: Hi! please help me with your email id.?
+
+  utter_ask_user_email:
+    - text: Please provide your email id.
+
+  utter_ask_incident:
+    - text: Please provide the incident number.
+
+  utter_goodbye:
+  - text: Bye! its was nice talking to you.
+
+  utter_iamabot:
+  - text: I am a bot created by RPA CoE team for Alshaya Group.
+
+  utter_recorded_email:
+  - text: email recorded is {user_email}.
+
+  utter_recorded_incident:
+  - text: incident recorded is {incident}.
+
+  utter_inc_created:
+    - text: incident has been created.
+
+  utter_ask_snow_activity:
+  - text: Seems like you want to perform a service now activity. please select from the below list.
+    buttons:
+    - title: "create an incident"
+      payload: "/create_snow_incident"
+    - title: "check the latest worknote"
+      payload: "/show_latest_update_incident"
+    - title: "close the incident"
+      payload: "/close_incident"
+    - title: "show me the last tickets incident"
+      payload: "/show_my_incidents"
+    - title: "Dont need servicenow activity."
+      payload: "/show_my_incidents"
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+actions:
+- action_create_incident

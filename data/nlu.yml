@@ -1,0 +1,82 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: get_user_email
+  examples: |
+    - [monali.mohapatra8792@yalshaya.com](user_email)
+    - [nidhi.sharma2@yalshaya.com](user_email) is my mail id
+    - my email is [shaik.majid@yalshaya.com](user_email)
+    - email [abhisekh.mohapatra8792@yalshaya.com](user_email)
+    - [abhisekh@yahoo.com](user_email) is my email id
+
+- intent: snow_activity
+  examples: |
+    - show me the update on [INC12546578](incident)
+    - what is the status of [INC87654321](incident)
+    - [INC87654321](incident)
+    - close the ticket [INC87654321](incident)
+    - [INC87654321](incident) close it
+    - latest note of [INC6473598](incident)
+    - create an incident
+    - incident creation required
+    - I want to raise an incident
+    - raise an request
+    - req creation required
+    - I want to raise an request
+    - create service now incident
+    - need service now request
+    - show all my servicenow tickets
+    - show all my snow tickets

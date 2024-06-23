@@ -1,0 +1,28 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-incident",
+      "2": "I-incident",
+      "3": "L-incident",
+      "4": "U-incident",
+      "5": "B-user_email",
+      "6": "I-user_email",
+      "7": "L-user_email",
+      "8": "U-user_email",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-incident": 1,
+      "I-incident": 2,
+      "L-incident": 3,
+      "U-incident": 4,
+      "B-user_email": 5,
+      "I-user_email": 6,
+      "L-user_email": 7,
+      "U-user_email": 8,
+      "O": 0
+    },
+    "num_tags": 9
+  }
+]
